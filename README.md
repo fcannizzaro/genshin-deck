@@ -17,13 +17,13 @@ or from below:
 
 ## Authentication
 
-This tool use the HoYoLAB cookies to obtain the info about your game instance.
+This tool uses the HoYoLAB cookies to obtain the info about your game instance.
 
-- Remember to set this option in your hoyolab account > battle chronicle
+- Remember to set this option in your hoyolab account > battle chronicles
 
 ![note](https://github.com/fcannizzaro/genshin-daily-stream-deck/blob/main/media/note.png?raw=true)
 
-- Configure
+- Configure the uid and tokens
 
 ![auth](https://github.com/fcannizzaro/genshin-daily-stream-deck/blob/main/media/authentication.png?raw=true)
 
