@@ -1,0 +1,83 @@
+{
+  "UUID": "com.genshin.sd",
+  "Name": "Genshin Impact Daily",
+  "Author": "fcannizzaro",
+  "Description": "Utilities Actions for Genshin Impact",
+  "Icon": "./icons/pluginIcon",
+  "Version": "1.0.0",
+  "PropertyInspectorPath": "pi/index.html",
+  "SDKVersion": 2,
+  "Bundle": "index.js",
+  "Engine": {
+    "node": "16.0.0"
+  },
+  "Software": {
+    "MinimumVersion": "5.0"
+  },
+  "OS": [
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "Category": "Genshin Daily",
+  "CategoryIcon": "icons/category",
+  "Actions": [
+    {
+      "Icon": "icons/resinIcon",
+      "Name": "Resin Counter",
+      "States": [
+        {
+          "Image": "icons/resinState"
+        }
+      ],
+      "Tooltip": "Resin Counter",
+      "UUID": "com.genshin.sd.resin"
+    },
+    {
+      "Icon": "icons/abyssIcon",
+      "Name": "Spiral Abyss",
+      "States": [
+        {
+          "Image": "icons/abyssState"
+        }
+      ],
+      "Tooltip": "Spiral Abyss",
+      "UUID": "com.genshin.sd.abyss"
+    },
+    {
+      "Icon": "icons/commissionIcon",
+      "Name": "Commissions",
+      "States": [
+        {
+          "Image": "icons/commissionState"
+        }
+      ],
+      "Tooltip": "Commissions",
+      "UUID": "com.genshin.sd.commission"
+    },
+    {
+      "Icon": "icons/expeditionIcon",
+      "Name": "Expeditions",
+      "States": [
+        {
+          "Image": "icons/expeditionState"
+        }
+      ],
+      "Tooltip": "Expeditions",
+      "UUID": "com.genshin.sd.expedition"
+    },
+    {
+      "Icon": "icons/teapotIcon",
+      "Name": "Teapot Counter",
+      "States": [
+        {
+          "Image": "icons/teapotState"
+        }
+      ],
+      "Tooltip": "Teapot Counter",
+      "UUID": "com.genshin.sd.teapot"
+    }
+  ],
+  "CodePath": "com.genshin.sd.exe"
+}

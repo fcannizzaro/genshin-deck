@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--suppress XmlDuplicatedId -->
+<html lang="en">
+    <head>
+        <title>Genshin Daily Settings</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="../pi/style/sdpi.css">
+    </head>
+    <body>
+        <div class="sdpi-wrapper">
+
+            <img src="./genshin-banner.png" />
+
+            <div class="sdpi-heading">Genshin Impact</div>
+
+            <div class="sdpi-item">
+                <div class="sdpi-item-label empty">UID</div>
+                <input class="sdpi-item-value" id="uid" required>
+            </div>
+
+            <div class="sdpi-heading">HoYoLAB Cookies</div>
+
+            <div class="sdpi-item">
+                <div class="sdpi-item-label empty">ltuid</div>
+                <input class="sdpi-item-value" type="password" id="ltuid" required>
+            </div>
+
+            <div class="sdpi-item">
+                <div class="sdpi-item-label empty">ltoken</div>
+                <input class="sdpi-item-value" type="password" id="ltoken" required>
+            </div>
+
+            <details>
+                <summary>How can I get my cookies?</summary>
+                <ol>
+                    <li>go to <a href="https://www.hoyolab.com/genshin/" rel="nofollow">hoyolab.com</a></li>
+                    <li>login to your account</li>
+                    <li>press <code>F12</code> to open inspect mode (aka Developer Tools)</li>
+                    <li>go to <code>Application</code>, <code>Cookies</code>, <code>https://www.hoyolab.com</code>.</li>
+                    <li>copy <code>ltuid</code> and <code>ltoken</code></li>
+                </ol>
+            </details>
+
+            <div style="padding: 8px 16px">
+                <button class="sdpi-item-value full" id="save">SAVE</button>
+            </div>
+
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>

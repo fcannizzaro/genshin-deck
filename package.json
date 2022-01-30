@@ -1,0 +1,24 @@
+{
+  "private": true,
+  "name": "com.genshin.sd",
+  "version": "1.0.0",
+  "author": "fcannizzaro",
+  "main": "./dist/index.js",
+  "bin": "./dist/index.js",
+  "scripts": {
+    "start": "npx ts-node ./src/index.ts -debug com.genshin.sd",
+    "build": "npx ncc build -m ./src/index.ts -o ./plugin"
+  },
+  "dependencies": {
+    "axios": "^0.25.0",
+    "canvas": "^2.9.0",
+    "crypto-js": "^4.1.1",
+    "elgato-stream-deck-sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.1.0",
+    "@types/node": "^16.11.12",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.3"
+  }
+}
