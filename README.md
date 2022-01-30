@@ -6,7 +6,11 @@ Show the current resin, the spiral abyss countdown (+ stars), teapot coins, comm
 
 ## Installation
 
-Download the stream-deck plugin from the (releases)[https://github.com/fcannizzaro/genshin-daily-stream-deck/releases].
+Download the stream-deck plugin from the [releases](https://github.com/fcannizzaro/genshin-daily-stream-deck/releases)
+or from below:
+
+[![download](https://github.com/fcannizzaro/genshin-daily-stream-deck/blob/main/media/download.png?raw=true)](https://github.com/fcannizzaro/genshin-daily-stream-deck/releases/download/1.0.0/com.genshin.sd.streamDeckPlugin)
+.
 
 ## Preview
 
@@ -22,7 +26,7 @@ This tool use the HoYoLAB cookies to obtain the info about your game instance.
 
 - Configure
 
- ![auth](https://github.com/fcannizzaro/genshin-daily-stream-deck/blob/main/media/authentication.png?raw=true)
+![auth](https://github.com/fcannizzaro/genshin-daily-stream-deck/blob/main/media/authentication.png?raw=true)
 
 ## License
 
