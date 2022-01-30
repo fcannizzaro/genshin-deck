@@ -15,9 +15,11 @@ Download the stream-deck plugin from the (releases)[https://github.com/fcannizza
 This tool use the HoyoLAB cookies to obtain the info about your game instance.
 
 - Rembember to set this option in your hoyolab account > battle chronicle
+
 ![note](https://github.com/fcannizzaro/genshin-daily-stream-deck/blob/main/media/note.png?raw=true)
 
 - Configure
+
  ![auth](https://github.com/fcannizzaro/genshin-daily-stream-deck/blob/main/media/authentication.png?raw=true)
 
 ## License
