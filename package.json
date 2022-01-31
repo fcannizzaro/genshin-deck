@@ -13,7 +13,8 @@
     "axios": "^0.25.0",
     "canvas": "^2.9.0",
     "crypto-js": "^4.1.1",
-    "elgato-stream-deck-sdk": "^1.0.0"
+    "elgato-stream-deck-sdk": "^1.0.0",
+    "timediff": "^1.1.1"
   },
   "devDependencies": {
     "@types/crypto-js": "^4.1.0",

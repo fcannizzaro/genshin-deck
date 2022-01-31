@@ -74,10 +74,26 @@ export const fetchAbyss = async ({ltoken, ltuid, uid}: any) => {
         const data = res.data.data;
         return {
             stars: data.total_star.toString(),
-            end: new Date(parseInt(data.end_time) * 1000)
+            end: parseInt(data.end_time) * 1000
         }
     } catch (e) {
         console.log(e);
         return null;
+    }
+};
+
+export const fetchBanner = async () => {
+    try {
+        const res = await axios('https://genshin-wishes.com/api/public/banners/latest');
+        return Object.values(res.data)
+            .filter((it: any) => !['NOVICE', 'PERMANENT'].includes(it.gachaType))
+            .map((it: any) => ({
+                type: it.gachaType === 'CHARACTER_EVENT' ? 'character' : 'weapon',
+                image: it.image?.url,
+                end: it.end,
+                start: it.start
+            }));
+    } catch (e) {
+        return [];
     }
 };

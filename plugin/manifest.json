@@ -4,7 +4,7 @@
   "Author": "fcannizzaro",
   "Description": "Utilities Actions for Genshin Impact",
   "Icon": "./icons/pluginIcon",
-  "Version": "1.0.0",
+  "Version": "1.0.1",
   "PropertyInspectorPath": "pi/index.html",
   "SDKVersion": 2,
   "Bundle": "index.js",
@@ -28,6 +28,8 @@
       "Name": "Resin Counter",
       "States": [
         {
+          "TitleAlignment": "middle",
+          "TitleColor": "white",
           "Image": "icons/resinState"
         }
       ],
@@ -50,6 +52,8 @@
       "Name": "Commissions",
       "States": [
         {
+          "TitleAlignment": "middle",
+          "TitleColor": "white",
           "Image": "icons/commissionState"
         }
       ],
@@ -61,6 +65,8 @@
       "Name": "Expeditions",
       "States": [
         {
+          "TitleAlignment": "middle",
+          "TitleColor": "white",
           "Image": "icons/expeditionState"
         }
       ],
@@ -68,10 +74,25 @@
       "UUID": "com.genshin.sd.expedition"
     },
     {
+      "Icon": "icons/bannerIcon",
+      "Name": "Wish Banner",
+      "States": [
+        {
+          "TitleAlignment": "middle",
+          "TitleColor": "white",
+          "Image": "icons/bannerState"
+        }
+      ],
+      "Tooltip": "Wish Banner",
+      "UUID": "com.genshin.sd.banner"
+    },
+    {
       "Icon": "icons/teapotIcon",
       "Name": "Teapot Counter",
       "States": [
         {
+          "TitleAlignment": "middle",
+          "TitleColor": "white",
           "Image": "icons/teapotState"
         }
       ],

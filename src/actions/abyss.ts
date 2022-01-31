@@ -19,8 +19,14 @@ export class AbyssAction extends BaseAction {
             return sd.showAlert(context);
         }
 
-        const diff = end.getTime() - new Date().getTime();
-        const days = `-${Math.round(diff / (1000 * 3600 * 24))}`;
+        const diff = new Date(end).getTime() - new Date().getTime();
+        let days;
+        const missingDays = Math.floor(diff / (1000 * 3600 * 24));
+        if (!missingDays) {
+            days = `-${Math.floor(diff / (1000 * 3600))}h`;
+        } else {
+            days = `-${missingDays}d`;
+        }
         const image = await loadImage(abyssImage);
         ctx.drawImage(image, 0, 0, 256, 256);
         ctx.font = '84px Verdana';

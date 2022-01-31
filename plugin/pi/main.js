@@ -1,14 +1,17 @@
 const setup = document.getElementById('setup');
+const auth = document.getElementById('auth');
 
-document.addEventListener('init', async ({settings, pluginSettings, action}) => {
-
-    console.log(settings);
+document.addEventListener('init', async ({action}) => {
 
     // show the actions settings block
     const actionPI = document.getElementById(action);
 
     if (actionPI) {
         actionPI.className = "";
+    }
+
+    if (action.endsWith('banner')) {
+        auth.className = 'hidden';
     }
 
     // destroy other actions
@@ -18,7 +21,7 @@ document.addEventListener('init', async ({settings, pluginSettings, action}) => 
 
 let globalSettings = {};
 
-document.addEventListener('stateChange', async ({changed, settings, pluginSettings, action}) => {
+document.addEventListener('stateChange', async ({pluginSettings}) => {
     globalSettings = pluginSettings;
 });
 

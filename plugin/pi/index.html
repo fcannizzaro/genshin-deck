@@ -9,13 +9,19 @@
     </head>
     <body>
         <div class="sdpi-wrapper">
-            <div id="com.genshin.sd.resin" class="hidden isAction">
-                <div class="sdpi-item">
-                    <div class="sdpi-item-label empty"></div>
-                    <button class="sdpi-item-value" id="setup">HoYoLAB Authentication</button>
-                </div>
+            <div class="sdpi-item" id="auth">
+                <div class="sdpi-item-label empty"></div>
+                <button class="sdpi-item-value" id="setup">HoYoLAB Authentication</button>
             </div>
-            <!-- other settings blocks here -->
+        </div>
+        <div id="com.genshin.sd.banner" class="hidden isAction">
+            <div type="select" class="sdpi-item">
+                <div class="sdpi-item-label">Banner Type</div>
+                <select class="sdProperty full" id="banner" oninput="setSettings()">
+                    <option value="character">character</option>
+                    <option value="weapon">weapon</option>
+                </select>
+            </div>
         </div>
         <script src="main.js"></script>
     </body>

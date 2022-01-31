@@ -2,10 +2,10 @@ import './actions/resin';
 import './actions/commission';
 import './actions/expedition';
 import './actions/abyss';
+import './actions/banner';
 import './actions/teapot';
 import {StreamDeck} from 'elgato-stream-deck-sdk';
-import {fetchAbyss, fetchDaily} from "./api/hoyolab";
-import exp from "constants";
+import {fetchAbyss, fetchBanner, fetchDaily} from "./api/hoyolab";
 
 interface PluginSettings {
     authentication: {
@@ -13,9 +13,14 @@ interface PluginSettings {
         ltuid: string;
         ltoken: string;
     },
+    banner: Array<{
+        type: string;
+        end: string;
+        image: string;
+    }>;
     daily: Record<string, any>,
     abyss: {
-        end: Date;
+        end: number;
         stars: string
     }
 }
@@ -27,14 +32,18 @@ export const refreshData = async () => {
     if (!ltoken || !ltuid || !uid) {
         sd.pluginSettings.daily = {error: true}
     } else {
-        const daily: any = await fetchDaily({ltoken, ltuid, uid});
-        const abyss: any = await fetchAbyss({ltoken, ltuid, uid});
+        const [daily, abyss, banner]: any = await Promise.all([
+            fetchDaily({ltoken, ltuid, uid}),
+            fetchAbyss({ltoken, ltuid, uid}),
+            fetchBanner()
+        ]);
         sd.pluginSettings.daily = daily || {};
         sd.pluginSettings.abyss = abyss || {};
+        sd.pluginSettings.banner = banner || {};
     }
     sd.setPluginSettings(sd.pluginSettings)
 }
 
 const init = () => refreshData().then(() => setInterval(refreshData, 1000 * 60));
 
-setTimeout(init, 2000);
+setTimeout(init, 1500);
