@@ -1,6 +1,6 @@
 # Genshin Impact Daily for Stream Deck
 
-Show the current Resin, the Spiral Abyss countdown, the Teapot coins, Daily Commissions, Expeditions, Wish Banner, etc ...
+Actions for Live Resin, Spiral Abyss, Daily Commissions, Expeditions, Wish Banners, etc ...
 
 > At this moment this plugin works only with **GENSHIN IMPACT GLOBAL**
 
