@@ -1,6 +1,6 @@
 # Genshin Impact Daily for Stream Deck
 
-Show the current resin, the spiral abyss countdown (+ stars), teapot coins, commissions, expeditions, etc ...
+Show the current Resin, the Spiral Abyss countdown, the Teapot coins, Daily Commissions, Expeditions, Wish Banner, etc ...
 
 > At this moment this plugin works only with **GENSHIN IMPACT GLOBAL**
 
@@ -19,7 +19,7 @@ or from below:
 
 This tool uses the HoYoLAB cookies to obtain the info about your game instance.
 
-- Remember to set this option in your hoyolab account > battle chronicles
+- Remember to set this option in your HoYoLAB account > Battle Chronicles
 
 ![note](https://github.com/fcannizzaro/genshin-daily-stream-deck/blob/main/media/note.png?raw=true)
 
