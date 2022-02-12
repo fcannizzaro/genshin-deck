@@ -2,6 +2,8 @@
 
 Actions for Live Resin, Spiral Abyss, Daily Commissions, Expeditions, Wish Banners, etc ...
 
+[![](https://img.shields.io/badge/Stream%20Deck%20SDK-for%20Node.js-green)](https://github.com/stream-deck-for-node/sdk)
+
 > At this moment this plugin works only with **GENSHIN IMPACT GLOBAL**
 
 ## Installation
