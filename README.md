@@ -11,7 +11,7 @@ Actions for Live Resin, Spiral Abyss, Daily Commissions, Expeditions, Wish Banne
 Download the stream-deck plugin from the [releases](https://github.com/fcannizzaro/genshin-daily-stream-deck/releases)
 or from below:
 
-[![download](https://github.com/fcannizzaro/genshin-daily-stream-deck/blob/main/media/download.png?raw=true)](https://github.com/fcannizzaro/genshin-daily-stream-deck/releases/download/1.0.1/com.genshin.sd.streamDeckPlugin)
+[![download](https://github.com/fcannizzaro/genshin-daily-stream-deck/blob/main/media/download.png?raw=true)](https://github.com/fcannizzaro/genshin-daily-stream-deck/releases/download/1.0.2/com.genshin.sd.streamDeckPlugin)
 
 ## Preview
 
