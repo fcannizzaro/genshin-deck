@@ -1,5 +1,5 @@
-import {Action, AppearDisappearEvent, BaseAction, KeyEvent} from 'elgato-stream-deck-sdk';
-import {refreshData, sd} from '../index';
+import {Action, AppearDisappearEvent, BaseAction, KeyEvent, PluginSettingsChanged} from '@stream-deck-for-node/sdk';
+import {PluginSettings, refreshData, sd} from '../index';
 import {createCanvas, loadImage} from 'canvas';
 import {SettingsChanged} from "../../../../sdk/src";
 
@@ -51,7 +51,10 @@ export class BannerAction extends BaseAction {
         await this.updateTile(e.context, e.settings.banner);
     }
 
-    async onPluginSettingsChanged() {
+    async onPluginSettingsChanged(e: PluginSettingsChanged<PluginSettings>) {
+        if (!e.changedKeys.includes("banner")) {
+            return
+        }
         this.contexts.forEach(this.updateTile);
     }
 

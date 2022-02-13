@@ -1,5 +1,5 @@
-import {Action, AppearDisappearEvent, BaseAction, KeyEvent} from 'elgato-stream-deck-sdk';
-import {refreshData, sd} from '../index';
+import {Action, AppearDisappearEvent, BaseAction, KeyEvent, PluginSettingsChanged} from '@stream-deck-for-node/sdk';
+import {PluginSettings, refreshData, sd} from '../index';
 
 @Action('expedition')
 export class ExpeditionAction extends BaseAction {
@@ -22,7 +22,10 @@ export class ExpeditionAction extends BaseAction {
         this.updateTile(e.context);
     }
 
-    async onPluginSettingsChanged() {
+    async onPluginSettingsChanged(e: PluginSettingsChanged<PluginSettings>) {
+        if (!e.changedKeys.includes("daily")) {
+            return
+        }
         this.contexts.forEach(this.updateTile);
     }
 

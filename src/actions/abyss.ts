@@ -1,5 +1,5 @@
-import {Action, AppearDisappearEvent, BaseAction, KeyEvent} from 'elgato-stream-deck-sdk';
-import {refreshData, sd} from '../index';
+import {Action, AppearDisappearEvent, BaseAction, KeyEvent, PluginSettingsChanged} from '@stream-deck-for-node/sdk';
+import {PluginSettings, refreshData, sd} from '../index';
 import {createCanvas, loadImage} from 'canvas';
 import {abyssImage} from "../res/images";
 
@@ -47,7 +47,10 @@ export class AbyssAction extends BaseAction {
         await this.updateTile(e.context);
     }
 
-    async onPluginSettingsChanged() {
+    async onPluginSettingsChanged(e: PluginSettingsChanged<PluginSettings>) {
+        if (!e.changedKeys.includes("abyss")) {
+            return
+        }
         this.contexts.forEach(this.updateTile);
     }
 

@@ -4,10 +4,10 @@ import './actions/expedition';
 import './actions/abyss';
 import './actions/banner';
 import './actions/teapot';
-import {StreamDeck} from 'elgato-stream-deck-sdk';
+import {StreamDeck} from '@stream-deck-for-node/sdk';
 import {fetchAbyss, fetchBanner, fetchDaily} from "./api/hoyolab";
 
-interface PluginSettings {
+export interface PluginSettings {
     authentication: {
         uid: string;
         ltuid: string;
