@@ -29,19 +29,25 @@ export const sd = new StreamDeck<PluginSettings>();
 
 export const refreshData = async () => {
     const {ltoken, ltuid, uid} = sd.pluginSettings?.authentication || {};
+
+    sd.setPluginSettings({
+        banner: await fetchBanner() || {}
+    });
+
     if (!ltoken || !ltuid || !uid) {
-        sd.pluginSettings.daily = {error: true}
+        sd.setPluginSettings({
+            daily: {error: true},
+        });
     } else {
-        const [daily, abyss, banner]: any = await Promise.all([
+        const [daily, abyss]: any = await Promise.all([
             fetchDaily({ltoken, ltuid, uid}),
             fetchAbyss({ltoken, ltuid, uid}),
-            fetchBanner()
         ]);
-        sd.pluginSettings.daily = daily || {};
-        sd.pluginSettings.abyss = abyss || {};
-        sd.pluginSettings.banner = banner || {};
+        sd.setPluginSettings({
+            daily: daily || {},
+            abyss: abyss || {}
+        });
     }
-    sd.setPluginSettings(sd.pluginSettings)
 }
 
 const init = () => refreshData().then(() => setInterval(refreshData, 1000 * 60));
