@@ -1,6 +1,6 @@
 {
-  "UUID": "com.genshin.sd",
-  "Name": "Genshin Impact Daily",
+  "UUID": "com.genshin.deck",
+  "Name": "Genshin Deck",
   "Author": "fcannizzaro",
   "Description": "Utilities Actions for Genshin Impact",
   "Icon": "./icons/pluginIcon",
@@ -19,7 +19,7 @@
       "MinimumVersion": "10"
     }
   ],
-  "Category": "Genshin Daily",
+  "Category": "Genshin Deck",
   "CategoryIcon": "icons/category",
   "Actions": [
     {
@@ -33,7 +33,7 @@
         }
       ],
       "Tooltip": "Resin Counter",
-      "UUID": "com.genshin.sd.resin"
+      "UUID": "com.genshin.deck.resin"
     },
     {
       "Icon": "icons/abyssIcon",
@@ -44,7 +44,7 @@
         }
       ],
       "Tooltip": "Spiral Abyss",
-      "UUID": "com.genshin.sd.abyss"
+      "UUID": "com.genshin.deck.abyss"
     },
     {
       "Icon": "icons/commissionIcon",
@@ -57,7 +57,7 @@
         }
       ],
       "Tooltip": "Commissions",
-      "UUID": "com.genshin.sd.commission"
+      "UUID": "com.genshin.deck.commission"
     },
     {
       "Icon": "icons/expeditionIcon",
@@ -70,7 +70,7 @@
         }
       ],
       "Tooltip": "Expeditions",
-      "UUID": "com.genshin.sd.expedition"
+      "UUID": "com.genshin.deck.expedition"
     },
     {
       "Icon": "icons/bannerIcon",
@@ -83,7 +83,7 @@
         }
       ],
       "Tooltip": "Wish Banner",
-      "UUID": "com.genshin.sd.banner"
+      "UUID": "com.genshin.deck.banner"
     },
     {
       "Icon": "icons/teapotIcon",
@@ -96,8 +96,8 @@
         }
       ],
       "Tooltip": "Teapot Counter",
-      "UUID": "com.genshin.sd.teapot"
+      "UUID": "com.genshin.deck.teapot"
     }
   ],
-  "CodePath": "com.genshin.sd.exe"
+  "CodePath": "com.genshin.deck.exe"
 }

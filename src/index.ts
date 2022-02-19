@@ -30,9 +30,11 @@ export const sd = new StreamDeck<PluginSettings>();
 export const refreshData = async () => {
     const {ltoken, ltuid, uid} = sd.pluginSettings?.authentication || {};
 
-    sd.setPluginSettings({
-        banner: await fetchBanner() || {}
-    });
+    const banner = await fetchBanner();
+
+    if (banner.length) {
+        sd.setPluginSettings({banner});
+    }
 
     if (!ltoken || !ltuid || !uid) {
         sd.setPluginSettings({
@@ -53,3 +55,8 @@ export const refreshData = async () => {
 const init = () => refreshData().then(() => setInterval(refreshData, 1000 * 60));
 
 setTimeout(init, 1500);
+
+process.on("uncaughtException", e => {
+    console.log(e);
+    sd.logMessage('ERROR: ' + e.message);
+});
