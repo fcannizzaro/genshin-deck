@@ -8,14 +8,14 @@ Actions for Live Resin, Spiral Abyss, Daily Commissions, Expeditions, Wish Banne
 
 ## Installation
 
-Download the stream-deck plugin from the [releases](https://github.com/fcannizzaro/genshin-daily-stream-deck/releases)
+Download the stream-deck plugin from the [releases](https://github.com/fcannizzaro/genshin-deck/releases)
 or from below:
 
-[![download](https://github.com/fcannizzaro/genshin-daily-stream-deck/blob/main/media/download.png?raw=true)](https://github.com/fcannizzaro/genshin-daily-stream-deck/releases/download/1.0.2/com.genshin.sd.streamDeckPlugin)
+[![download](https://github.com/fcannizzaro/genshin-deck/blob/main/media/download.png?raw=true)](https://github.com/fcannizzaro/genshin-deck/releases/download/1.0.3/com.genshin.sd.streamDeckPlugin)
 
 ## Preview
 
-![actions](https://github.com/fcannizzaro/genshin-daily-stream-deck/blob/main/media/actions.png?raw=true)
+![actions](https://github.com/fcannizzaro/genshin-deck/blob/main/media/actions.png?raw=true)
 
 ## Authentication
 
@@ -23,11 +23,11 @@ This tool uses the HoYoLAB cookies to obtain the info about your game instance.
 
 - Remember to set this option in your HoYoLAB account > Battle Chronicles
 
-![note](https://github.com/fcannizzaro/genshin-daily-stream-deck/blob/main/media/note.png?raw=true)
+![note](https://github.com/fcannizzaro/genshin-deck/blob/main/media/note.png?raw=true)
 
 - Configure the uid and tokens
 
-![auth](https://github.com/fcannizzaro/genshin-daily-stream-deck/blob/main/media/authentication.png?raw=true)
+![auth](https://github.com/fcannizzaro/genshin-deck/blob/main/media/authentication.png?raw=true)
 
 ## License
 
