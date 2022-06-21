@@ -1,24 +1,37 @@
 {
   "private": true,
-  "name": "com.genshin.sd",
-  "version": "1.0.1",
+  "name": "com.genshin.deck",
+  "version": "1.0.4",
   "author": "fcannizzaro",
   "main": "./dist/index.js",
   "bin": "./dist/index.js",
   "scripts": {
-    "start": "npx ts-node ./src/index.ts -debug com.genshin.sd",
-    "build": "npx ncc build -m ./src/index.ts -o ./plugin"
+    "start": "npx ts-node ./src/index.ts -debug com.genshin.deck",
+    "build": "npm run build:ts && npm run build:bin",
+    "build:ts": "npx tsc -outDir dist",
+    "build:bin": "npx pkg package.json --compress GZip -o plugin/com.genshin.deck"
+  },
+  "pkg": {
+    "targets": [
+      "node16-windows-x64"
+    ],
+    "assets": [
+      "./node_modules/canvas/build/Release/*",
+      "./images"
+    ]
   },
   "dependencies": {
+    "@stream-deck-for-node/sdk": "1.0.11",
     "axios": "^0.25.0",
     "canvas": "^2.9.0",
     "crypto-js": "^4.1.1",
-    "@stream-deck-for-node/sdk": "^1.0.0",
     "timediff": "^1.1.1"
   },
   "devDependencies": {
     "@types/crypto-js": "^4.1.0",
     "@types/node": "^16.11.12",
+    "pkg": "^5.7.0",
+    "prettier": "^2.7.1",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.3"
   }

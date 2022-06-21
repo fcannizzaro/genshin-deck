@@ -1,15 +1,13 @@
 {
-  "UUID": "com.genshin.deck",
+  "uuid": "com.genshin.deck",
   "Name": "Genshin Deck",
   "Author": "fcannizzaro",
   "Description": "Utilities Actions for Genshin Impact",
   "Icon": "./icons/pluginIcon",
-  "Version": "1.0.3",
+  "Version": "1.0.4",
+  "CodePath": "com.genshin.deck.exe",
   "PropertyInspectorPath": "pi/index.html",
   "SDKVersion": 2,
-  "Engine": {
-    "node": "16.0.0"
-  },
   "Software": {
     "MinimumVersion": "5.0"
   },
@@ -77,6 +75,5 @@
     }],
     "Tooltip": "Teapot Counter",
     "UUID": "com.genshin.deck.teapot"
-  }],
-  "CodePath": "com.genshin.deck.exe"
+  }]
 }
