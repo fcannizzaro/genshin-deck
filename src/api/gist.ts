@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Banner } from '../interfaces';
 
-export const fetchBanner = async () => {
+export const fetchBanner = async (): Promise<Banner[]> => {
   try {
     const res = await axios(
       'https://gist.github.com/fcannizzaro/3043559011496c9c641f614feb416414/raw/genshin-banners-deck.json',

@@ -3,12 +3,12 @@ import {
   AppearDisappearEvent,
   BaseAction,
   KeyEvent,
-  PluginSettingsChanged,
   SettingsChanged,
 } from '@stream-deck-for-node/sdk';
-import { refreshData, sd } from '../index';
+import { sd } from '../index';
 import { createCanvas, loadImage } from 'canvas';
-import { PluginSettings } from '../interfaces';
+import axios from 'axios';
+import { fetchBanner } from '../api/gist';
 
 const timeDiff = require('timediff');
 
@@ -22,18 +22,29 @@ interface BannerSettings {
 
 @Action('banner')
 export class BannerAction extends BaseAction {
-  async updateTile(context: string, bannerType?: string) {
-    if (!bannerType) {
-      bannerType = (await sd.getSettings<BannerSettings>(context)).banner || 'character';
-    }
-    const banner = (sd.pluginSettings?.banner || []).find((it) => it.type === bannerType);
+  cache: Record<string, any> = {};
+
+  async updateTile(context: string, bannerType: 'character' | 'weapon') {
+    const wishes = await fetchBanner();
+    const banner = wishes.find((it) => it.type === bannerType);
+
     if (!banner) {
       return;
     }
+
     const { image, end } = banner;
     const diff = timeDiff(end * 1000, new Date(), 'DHm');
     const title = `${Math.abs(diff.days)}d ${Math.abs(diff.hours)}h`;
-    const imageRes = await loadImage(image);
+
+    if (!this.cache[image]) {
+      // download image
+      const { data } = await axios({ url: image, responseType: 'arraybuffer' });
+
+      // cache image
+      this.cache[image] = await loadImage(Buffer.from(data, 'binary'));
+    }
+
+    const imageRes = this.cache[image];
     const width = (imageRes.width * 256) / imageRes.height;
     ctx.drawImage(imageRes, -(width - 256) / (bannerType === 'weapon' ? 2 : 3), 0, width, 256);
     ctx.font = '42px Verdana';
@@ -46,21 +57,14 @@ export class BannerAction extends BaseAction {
 
   async onSingleTap(e: KeyEvent) {
     sd.showOk(e.context);
-    await refreshData();
+    await this.updateTile(e.context, e.payload.settings.banner);
   }
 
   async onAppear(e: AppearDisappearEvent) {
-    await this.updateTile(e.context);
+    await this.updateTile(e.context, e.payload.settings.banner);
   }
 
   async onSettingsChanged(e: SettingsChanged<BannerSettings>) {
     await this.updateTile(e.context, e.settings.banner);
-  }
-
-  async onPluginSettingsChanged(e: PluginSettingsChanged<PluginSettings>) {
-    if (!e.changedKeys.includes('banner')) {
-      return;
-    }
-    this.contexts.forEach((it) => this.updateTile(it));
   }
 }

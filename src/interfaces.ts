@@ -1,8 +1,8 @@
 export interface Banner {
+  type: 'character' | 'weapon';
   image: string;
   start: number;
   end: number;
-  type: 'character' | 'weapon';
 }
 
 export interface PluginSettings {
@@ -11,7 +11,6 @@ export interface PluginSettings {
     ltuid: string;
     ltoken: string;
   };
-  banner: Banner[];
   daily: Record<string, any>;
   abyss: {
     end: number;

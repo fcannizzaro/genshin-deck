@@ -7,17 +7,11 @@ import './actions/banner';
 import './actions/teapot';
 import { StreamDeck } from '@stream-deck-for-node/sdk';
 import { fetchAbyss, fetchDaily } from './api/hoyolab';
-import { fetchBanner } from './api/gist';
 
 export const sd = new StreamDeck<PluginSettings>();
 
 export const refreshData = async () => {
   const { ltoken, ltuid, uid } = sd.pluginSettings?.authentication || {};
-  const banner = await fetchBanner();
-
-  if (banner.length) {
-    sd.setPluginSettings({ banner });
-  }
 
   if (!ltoken || !ltuid || !uid) {
     sd.setPluginSettings({
