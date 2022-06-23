@@ -58,6 +58,9 @@ export class AbyssAction extends BaseAction {
     if (!e.changedKeys.includes('abyss')) {
       return;
     }
+    if (e.changedKeys.includes('authentication')) {
+      refreshData().then();
+    }
     this.contexts.forEach(this.updateTile);
   }
 }

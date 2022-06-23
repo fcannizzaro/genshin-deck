@@ -31,6 +31,9 @@ export class ResinAction extends BaseAction {
     if (!e.changedKeys.includes('daily')) {
       return;
     }
+    if (e.changedKeys.includes('authentication')) {
+      refreshData().then();
+    }
     this.contexts.forEach(this.updateTile);
   }
 }

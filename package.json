@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "com.genshin.deck",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "author": "fcannizzaro",
   "main": "./dist/index.js",
   "bin": "./dist/index.js",

@@ -56,8 +56,8 @@ export class BannerAction extends BaseAction {
   }
 
   async onSingleTap(e: KeyEvent) {
-    sd.showOk(e.context);
     await this.updateTile(e.context, e.payload.settings.banner);
+    sd.showOk(e.context);
   }
 
   async onAppear(e: AppearDisappearEvent) {
