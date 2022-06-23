@@ -33,4 +33,4 @@ jobs:
       - name: Extract the Elgato Distribution Tool
         run: 7z x "${{ steps.distributiontool.outputs.filename }}"
       - name: Package plugin
-        run: DistributionTool.exe -b -i com.genshin.deck.sdPlugin -o Release
+        run: ./DistributionTool.exe -b -i com.genshin.deck.sdPlugin -o Release
