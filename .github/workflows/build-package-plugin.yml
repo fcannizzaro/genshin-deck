@@ -22,9 +22,9 @@ jobs:
           version: latest
           cache: true
       - name: Install dependencies
-      - run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
       - name: Build plugin
-      - run: pnpm build
+        run: pnpm build
 
 
 
