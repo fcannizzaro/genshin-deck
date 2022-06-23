@@ -14,28 +14,35 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '16.x'
+      
       - name: Use pnpm
         uses: pnpm/action-setup@v2.2.2
         with:
           version: latest
+      
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      
       - name: Build plugin
         run: pnpm build
+      
       - name: Rename plugin directory
         run: ren plugin com.genshin.deck.sdPlugin
+      
       - uses: suisei-cn/actions-download-file@v1
         id: distributiontool
-        name: Download the Elgato Distribution Tool
+        name: Download Elgato Distribution Tool
         with:
           url: "https://developer.elgato.com/documentation/stream-deck/distributiontool/DistributionToolWindows.zip"
           target: .
-      - name: Extract the Elgato Distribution Tool
+      
+      - name: Extract DistributionTool.exe
         run: 7z x "${{ steps.distributiontool.outputs.filename }}"
+      
       - name: Package plugin
-        run: ./DistributionTool.exe -b -i com.genshin.deck.sdPlugin -o .
-        
-      - name: get version
+        run: ./DistributionTool.exe -b -i com.genshin.deck.sdPlugin -o .   
+      
+      - name: Extract plugin version
         id: version
         uses: notiz-dev/github-action-json-property@release
         with: 
@@ -52,6 +59,7 @@ jobs:
           release_name: "${{steps.version.outputs.prop}}"
           draft: true
           prerelease: false
+      
       - name: Upload release asset
         uses: actions/upload-release-asset@v1
         env:
@@ -60,4 +68,4 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./com.genshin.deck.streamDeckPlugin
           asset_name: com.genshin.deck.streamDeckPlugin
-          asset_content_type: application/octet-stream    
+          asset_content_type: application/octet-stream
