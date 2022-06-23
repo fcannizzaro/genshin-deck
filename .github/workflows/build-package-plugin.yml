@@ -23,7 +23,7 @@ jobs:
       - name: Build plugin
         run: pnpm build
       - name: Rename plugin directory
-        run: rename plugin com.genshin.deck.sdPlugin
+        run: ren plugin com.genshin.deck.sdPlugin
       - uses: suisei-cn/actions-download-file@v1
         id: distributiontool
         name: Download the Elgato Distribution Tool
