@@ -17,10 +17,11 @@ jobs:
           node-version: '16.x'
           cache: true
       - uses: pnpm/action-setup@v2.2.2
-      - name: Install dependencies
+      - name: Use pnpm
         with:
           version: latest
           cache: true
+      - name: Install dependencies
       - run: pnpm install --frozen-lockfile
       - name: Build plugin
       - run: pnpm build
