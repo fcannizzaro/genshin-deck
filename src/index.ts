@@ -5,7 +5,9 @@ import './actions/expedition';
 import './actions/abyss';
 import './actions/banner';
 import './actions/teapot';
-import { StreamDeck } from '@stream-deck-for-node/sdk';
+import './actions/transformer';
+import './actions/genshin-view';
+import { PluginSettingsChanged, StreamDeck } from '@stream-deck-for-node/sdk';
 import { fetchAbyss, fetchDaily } from './api/hoyolab';
 
 export const sd = new StreamDeck<PluginSettings>();
@@ -40,6 +42,15 @@ export const refreshData = async () => {
   loading = false;
 };
 
+// useful for initial configuration / authentication data updated
+export const checkAuthenticationChange = (e: PluginSettingsChanged<PluginSettings>) => {
+  if (e.changedKeys.includes('authentication')) {
+    refreshData().then();
+    return true;
+  }
+  return false;
+};
+
 process.on('uncaughtException', (e) => {
   console.log(e);
   sd.logMessage('ERROR: ' + e.message);
@@ -47,4 +58,4 @@ process.on('uncaughtException', (e) => {
 
 const init = () => refreshData().then(() => setInterval(refreshData, 1000 * 60));
 
-setTimeout(init, 1000);
+setTimeout(init, 500);

@@ -20,12 +20,13 @@ interface BannerSettings {
   banner: 'weapon' | 'character';
 }
 
-@Action('banner')
+@Action('banner', { m: 15 })
 export class BannerAction extends BaseAction {
   cache: Record<string, any> = {};
 
-  async updateTile(context: string, bannerType: 'character' | 'weapon') {
+  async updateTile(context: string) {
     const wishes = await fetchBanner();
+    const bannerType = sd.getSettings<BannerSettings>(context)?.banner;
     const banner = wishes.find((it) => it.type === bannerType);
 
     if (!banner) {
@@ -55,16 +56,20 @@ export class BannerAction extends BaseAction {
     sd.setImage(context, canvas.toDataURL());
   }
 
-  async onSingleTap(e: KeyEvent) {
-    await this.updateTile(e.context, e.payload.settings.banner);
-    sd.showOk(e.context);
+  async onAppear(e: AppearDisappearEvent) {
+    await this.updateTile(e.context);
   }
 
-  async onAppear(e: AppearDisappearEvent) {
-    await this.updateTile(e.context, e.payload.settings.banner);
+  onPeriodicUpdate() {
+    this.contexts.forEach((ctx) => this.updateTile(ctx));
+  }
+
+  async onSingleTap(e: KeyEvent) {
+    sd.showOk(e.context);
+    await this.updateTile(e.context);
   }
 
   async onSettingsChanged(e: SettingsChanged<BannerSettings>) {
-    await this.updateTile(e.context, e.settings.banner);
+    await this.updateTile(e.context);
   }
 }

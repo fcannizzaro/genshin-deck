@@ -8,72 +8,148 @@
   "CodePath": "com.genshin.deck.exe",
   "PropertyInspectorPath": "pi/index.html",
   "SDKVersion": 2,
+  "Profiles": [
+    {
+      "Name": "GenshinDeck",
+      "ReadOnly": true,
+      "DeviceType": 0,
+      "DontAutoSwitchWhenInstalled": true
+    },
+    {
+      "Name": "GenshinDeckMini",
+      "ReadOnly": true,
+      "DeviceType": 1,
+      "DontAutoSwitchWhenInstalled": true
+    },
+    {
+      "Name": "GenshinDeckXL",
+      "ReadOnly": true,
+      "DeviceType": 2,
+      "DontAutoSwitchWhenInstalled": true
+    },
+    {
+      "Name": "GenshinDeck",
+      "ReadOnly": true,
+      "DeviceType": 3,
+      "DontAutoSwitchWhenInstalled": true
+    }
+  ],
   "Software": {
     "MinimumVersion": "5.0"
   },
-  "OS": [{
-    "Platform": "windows",
-    "MinimumVersion": "10"
-  }],
+  "OS": [
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
   "Category": "Genshin Deck",
   "CategoryIcon": "icons/category",
-  "Actions": [{
-    "Icon": "icons/resinIcon",
-    "Name": "Resin Counter",
-    "States": [{
-      "TitleAlignment": "middle",
-      "TitleColor": "white",
-      "Image": "icons/resinState"
-    }],
-    "Tooltip": "Resin Counter",
-    "UUID": "com.genshin.deck.resin"
-  }, {
-    "Icon": "icons/abyssIcon",
-    "Name": "Spiral Abyss",
-    "States": [{
-      "Image": "icons/abyssState"
-    }],
-    "Tooltip": "Spiral Abyss",
-    "UUID": "com.genshin.deck.abyss"
-  }, {
-    "Icon": "icons/commissionIcon",
-    "Name": "Commissions",
-    "States": [{
-      "TitleAlignment": "middle",
-      "TitleColor": "white",
-      "Image": "icons/commissionState"
-    }],
-    "Tooltip": "Commissions",
-    "UUID": "com.genshin.deck.commission"
-  }, {
-    "Icon": "icons/expeditionIcon",
-    "Name": "Expeditions",
-    "States": [{
-      "TitleAlignment": "middle",
-      "TitleColor": "white",
-      "Image": "icons/expeditionState"
-    }],
-    "Tooltip": "Expeditions",
-    "UUID": "com.genshin.deck.expedition"
-  }, {
-    "Icon": "icons/bannerIcon",
-    "Name": "Wish Banner",
-    "States": [{
-      "TitleAlignment": "middle",
-      "TitleColor": "white",
-      "Image": "icons/bannerState"
-    }],
-    "Tooltip": "Wish Banner",
-    "UUID": "com.genshin.deck.banner"
-  }, {
-    "Icon": "icons/teapotIcon",
-    "Name": "Teapot Counter",
-    "States": [{
-      "TitleAlignment": "middle",
-      "TitleColor": "white",
-      "Image": "icons/teapotState"
-    }],
-    "Tooltip": "Teapot Counter",
-    "UUID": "com.genshin.deck.teapot"
-  }]
+  "Actions": [
+    {
+      "Icon": "icons/resinIcon",
+      "Name": "Resin Counter",
+      "States": [
+        {
+          "TitleAlignment": "middle",
+          "TitleColor": "white",
+          "Image": "icons/resinState"
+        }
+      ],
+      "Tooltip": "Resin Counter",
+      "UUID": "com.genshin.deck.resin"
+    },
+    {
+      "Icon": "icons/abyssIcon",
+      "Name": "Spiral Abyss",
+      "States": [
+        {
+          "Image": "icons/abyssState"
+        }
+      ],
+      "Tooltip": "Spiral Abyss",
+      "UUID": "com.genshin.deck.abyss"
+    },
+    {
+      "Icon": "icons/commissionIcon",
+      "Name": "Commissions",
+      "States": [
+        {
+          "TitleAlignment": "middle",
+          "TitleColor": "white",
+          "Image": "icons/commissionState"
+        }
+      ],
+      "Tooltip": "Commissions",
+      "UUID": "com.genshin.deck.commission"
+    },
+    {
+      "Icon": "icons/expeditionIcon",
+      "Name": "Expeditions",
+      "States": [
+        {
+          "TitleAlignment": "middle",
+          "TitleColor": "white",
+          "Image": "icons/expeditionState"
+        }
+      ],
+      "Tooltip": "Expeditions",
+      "UUID": "com.genshin.deck.expedition"
+    },
+    {
+      "Icon": "icons/bannerIcon",
+      "Name": "Wish Banner",
+      "States": [
+        {
+          "TitleAlignment": "middle",
+          "TitleColor": "white",
+          "Image": "icons/bannerState"
+        }
+      ],
+      "Tooltip": "Wish Banner",
+      "UUID": "com.genshin.deck.banner"
+    },
+    {
+      "Icon": "icons/teapotIcon",
+      "Name": "Teapot Counter",
+      "States": [
+        {
+          "TitleAlignment": "middle",
+          "TitleColor": "white",
+          "Image": "icons/teapotState"
+        }
+      ],
+      "Tooltip": "Teapot Counter",
+      "UUID": "com.genshin.deck.teapot"
+    },
+    {
+      "Icon": "icons/transformerIcon",
+      "Name": "Parametric Transformer",
+      "States": [
+        {
+          "TitleAlignment": "middle",
+          "TitleColor": "white",
+          "Image": "icons/transformerState"
+        },
+        {
+          "Image": "icons/transformerReadyState"
+        }
+      ],
+      "Tooltip": "Teapot Counter",
+      "UUID": "com.genshin.deck.transformer"
+    },
+    {
+      "Name": "Tile",
+      "States": [
+        {
+          "Image": "icons/pageState",
+          "TitleAlignment": "top",
+          "FontSize": "12"
+        }
+      ],
+      "SupportedInMultiActions": false,
+      "VisibleInActionsList": false,
+      "UUID": "com.genshin.deck.page"
+    }
+  ]
 }

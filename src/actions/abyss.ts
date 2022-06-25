@@ -5,7 +5,7 @@ import {
   KeyEvent,
   PluginSettingsChanged,
 } from '@stream-deck-for-node/sdk';
-import { refreshData, sd } from '../index';
+import { checkAuthenticationChange, refreshData, sd } from '../index';
 import { createCanvas, loadImage } from 'canvas';
 import { PluginSettings } from '../interfaces';
 import path from 'path';
@@ -16,17 +16,15 @@ const ctx = canvas.getContext('2d');
 
 ctx.fillStyle = 'white';
 
-@Action('abyss')
+@Action('abyss', { m: 15 })
 export class AbyssAction extends BaseAction {
   async updateTile(context: string) {
+    let days;
     const { stars, end } = sd.pluginSettings?.abyss || {};
-
     if (!end) {
       return sd.showAlert(context);
     }
-
     const diff = new Date(end).getTime() - new Date().getTime();
-    let days;
     const missingDays = Math.floor(diff / (1000 * 3600 * 24));
     if (!missingDays) {
       days = `-${Math.floor(diff / (1000 * 3600))}h`;
@@ -55,11 +53,8 @@ export class AbyssAction extends BaseAction {
   }
 
   async onPluginSettingsChanged(e: PluginSettingsChanged<PluginSettings>) {
-    if (!e.changedKeys.includes('abyss')) {
+    if (checkAuthenticationChange(e) || !e.changedKeys.includes('abyss')) {
       return;
-    }
-    if (e.changedKeys.includes('authentication')) {
-      refreshData().then();
     }
     this.contexts.forEach(this.updateTile);
   }
