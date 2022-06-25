@@ -135,8 +135,21 @@
           "Image": "icons/transformerReadyState"
         }
       ],
-      "Tooltip": "Teapot Counter",
+      "Tooltip": "Parametric Transformer",
       "UUID": "com.genshin.deck.transformer"
+    },
+    {
+      "Icon": "icons/rewardIcon",
+      "Name": "Claim Daily Reward",
+      "States": [
+        {
+          "TitleAlignment": "middle",
+          "TitleColor": "white",
+          "Image": "icons/rewardState"
+        }
+      ],
+      "Tooltip": "Daily Reward",
+      "UUID": "com.genshin.deck.daily-reward"
     },
     {
       "Name": "Tile",

@@ -92,3 +92,34 @@ export const fetchAbyss = async ({ ltoken, ltuid, uid }: any) => {
     return null;
   }
 };
+
+const dailyRewardRequest = async ({ ltoken, ltuid, method, path }: any) => {
+  try {
+    const res = await axios(
+      `https://sg-hk4e-api.hoyolab.com/event/sol/${path}?act_id=e202102251931481&lang=en-us`,
+      {
+        method,
+        headers: {
+          Cookie: `ltoken=${ltoken}; ltuid=${ltuid}`,
+          ds: generate_ds(),
+          ...SHARED_HEADERS,
+        },
+      },
+    );
+    return res.data;
+  } catch (e) {
+    return null;
+  }
+};
+
+export const getTodayReward = async ({ ltoken, ltuid }: any) => {
+  const dailyInfo = await dailyRewardRequest({ ltoken, ltuid, path: 'info' });
+  const { total_sign_day, is_sign } = dailyInfo?.data || {};
+  const index = total_sign_day - 1 * (is_sign ? 1 : 0);
+  const dailyHomeRewards = await dailyRewardRequest({ ltoken, ltuid, path: 'home' });
+  return [is_sign, dailyHomeRewards?.data?.awards[index]?.icon];
+};
+
+export const claimReward = async ({ ltoken, ltuid }: any) => {
+  return dailyRewardRequest({ ltoken, ltuid, method: 'post', path: 'sign' });
+};

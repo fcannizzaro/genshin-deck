@@ -7,6 +7,7 @@ import './actions/banner';
 import './actions/teapot';
 import './actions/transformer';
 import './actions/genshin-view';
+import './actions/daily-reward';
 import { PluginSettingsChanged, StreamDeck } from '@stream-deck-for-node/sdk';
 import { fetchAbyss, fetchDaily } from './api/hoyolab';
 
@@ -25,6 +26,7 @@ export const refreshData = async () => {
   // obtain data
   try {
     const { ltoken, ltuid, uid } = sd.pluginSettings?.authentication || {};
+
     if (ltoken && ltuid && uid) {
       const [daily, abyss]: any = await Promise.all([
         fetchDaily({ ltoken, ltuid, uid }),
@@ -44,7 +46,7 @@ export const refreshData = async () => {
 
 // useful for initial configuration / authentication data updated
 export const checkAuthenticationChange = (e: PluginSettingsChanged<PluginSettings>) => {
-  if (e.changedKeys.includes('authentication')) {
+  if (e.changedKeys.length === 1 && e.changedKeys.includes('authentication')) {
     refreshData().then();
     return true;
   }
