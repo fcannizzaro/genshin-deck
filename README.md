@@ -1,8 +1,10 @@
-# Genshin Impact Daily for Stream Deck
+# Genshin Deck
+Genshin Impact Stream Deck's plugin
 
 Actions for Live Resin, Spiral Abyss, Daily Commissions, Expeditions, Wish Banners, etc ...
 
 [![](https://img.shields.io/badge/Stream%20Deck%20SDK-for%20Node.js-green)](https://github.com/stream-deck-for-node/sdk)
+[![Publish Stream Deck plugin package](https://github.com/fcannizzaro/genshin-deck/actions/workflows/build-package-plugin.yml/badge.svg)](https://github.com/fcannizzaro/genshin-deck/actions/workflows/build-package-plugin.yml)
 
 > At this moment this plugin works only with **GENSHIN IMPACT GLOBAL**
 
@@ -15,7 +17,11 @@ or from below:
 
 ## Preview
 
+### All actions
 ![actions](https://github.com/fcannizzaro/genshin-deck/blob/main/media/actions.png?raw=true)
+
+### Expeditions View (tap on expeditions' action)
+![actions](https://github.com/fcannizzaro/genshin-deck/blob/main/media/expeditions-view.png?raw=true)
 
 ## Authentication
 
