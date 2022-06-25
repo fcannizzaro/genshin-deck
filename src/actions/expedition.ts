@@ -71,6 +71,7 @@ export class ExpeditionAction extends BaseAction {
 
     setViewCell(...g.positions.bottomLeft, {
       type: GenshinView.ui,
+      title: 'set\nyour\nicon',
       action: 'back',
     });
 

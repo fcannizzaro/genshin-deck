@@ -73,7 +73,7 @@ export class GenshinViewAction extends BaseAction {
         await this.renderExpedition(e.context, def);
         break;
       case GenshinView.ui:
-        sd.setTitle(e.context, '');
+        sd.setTitle(e.context, def.title ?? '');
         sd.setImage(e.context);
         break;
       default:
