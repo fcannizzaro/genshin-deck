@@ -1,4 +1,4 @@
-# Genshin Deck
+_# Genshin Deck
 Genshin Impact Stream Deck's plugin
 
 Actions for Live Resin, Spiral Abyss, Daily Commissions, Expeditions, Wish Banners, etc ...
@@ -35,6 +35,6 @@ This tool uses the HoYoLAB cookies to obtain the info about your game instance.
 
 ![auth](https://github.com/fcannizzaro/genshin-deck/blob/main/media/authentication.png?raw=true)
 
-## License
+## Author
 
-MIT
+Francesco Saverio Cannizzaro ([fcannizzaro](https://github.com/fcannizzaro))
