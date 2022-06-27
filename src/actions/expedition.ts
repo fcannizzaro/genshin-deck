@@ -57,7 +57,7 @@ export class ExpeditionAction extends BaseAction {
       const exp = expeditions[i];
       if (!exp) {
         return;
-      } else {
+      } else if (g.isNot(r, c, 'bottomLeft')) {
         setViewCell(r, c, {
           type: GenshinView.expedition,
           image: exp.avatar_side_icon,
@@ -71,7 +71,7 @@ export class ExpeditionAction extends BaseAction {
 
     setViewCell(...g.positions.bottomLeft, {
       type: GenshinView.ui,
-      title: 'set\nyour\nicon',
+      title: 'your\nback\nicon',
       action: 'back',
     });
 
