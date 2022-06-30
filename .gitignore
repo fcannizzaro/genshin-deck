@@ -241,3 +241,5 @@ dist
 
 # ignore executables
 *.exe
+
+.idea
