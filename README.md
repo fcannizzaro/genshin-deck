@@ -1,4 +1,4 @@
-_# Genshin Deck
+# Genshin Deck
 Genshin Impact Stream Deck's plugin
 
 Actions for Live Resin, Spiral Abyss, Daily Commissions, Expeditions, Wish Banners, etc ...
