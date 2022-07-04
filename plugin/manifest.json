@@ -4,7 +4,7 @@
   "Author": "fcannizzaro",
   "Description": "Utilities Actions for Genshin Impact",
   "Icon": "./icons/pluginIcon",
-  "Version": "1.0.7",
+  "Version": "1.0.6",
   "CodePath": "com.genshin.deck.exe",
   "PropertyInspectorPath": "pi/index.html",
   "SDKVersion": 2,
