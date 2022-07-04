@@ -12,36 +12,6 @@ import { createCanvas, loadImage } from 'canvas';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
-/*
- async updateTile(context: string) {
-    const { stars, end } = sd.pluginSettings?.abyss || {};
-
-    if (!end) {
-      return sd.showAlert(context);
-    }
-
-    const diff = new Date(end).getTime() - new Date().getTime();
-    let days;
-    const missingDays = Math.floor(diff / (1000 * 3600 * 24));
-    if (!missingDays) {
-      days = `-${Math.floor(diff / (1000 * 3600))}h`;
-    } else {
-      days = `-${missingDays}d`;
-    }
-    const imageBuffer = fs.readFileSync(path.join(__dirname, '../../images/abyss.png'));
-    const image = await loadImage(imageBuffer);
-    ctx.drawImage(image, 0, 0, 256, 256);
-    ctx.font = '84px Verdana';
-    const daysText = ctx.measureText(days);
-    ctx.fillText(days, (256 - daysText.width) / 2, 128);
-    ctx.font = '42px Verdana';
-    const starsText = ctx.measureText(stars);
-    ctx.fillText(stars, 90 + (121 - starsText.width) / 2, 218);
-    sd.setImage(context, canvas.toDataURL());
-  }
-
- */
-
 @Action('expedition')
 export class ExpeditionAction extends BaseAction {
   updateTile(context: string) {
