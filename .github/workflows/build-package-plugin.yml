@@ -30,7 +30,7 @@ jobs:
         run: pnpm build
 
       - name: Build Property Inspector
-        run: cd property-inspector && pnpm install && pnpm build
+        run: cd property-inspector && pnpm install --frozen-lockfile && pnpm build
 
       - name: Rename plugin directory
         run: ren plugin com.genshin.deck.sdPlugin

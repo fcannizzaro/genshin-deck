@@ -6,7 +6,6 @@ import './actions/abyss';
 import './actions/banner';
 import './actions/teapot';
 import './actions/transformer';
-import './actions/genshin-view';
 import './actions/daily-reward';
 import './actions/progression';
 import { PluginSettingsChanged, StreamDeck } from '@stream-deck-for-node/sdk';
