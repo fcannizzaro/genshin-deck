@@ -16,6 +16,7 @@ export interface PluginSettings {
     end: number;
     stars: string;
   };
+  progression: Array<Character>;
 }
 
 export interface RecoveryTime {
@@ -24,17 +25,12 @@ export interface RecoveryTime {
   Minute: number;
 }
 
-export interface MatrixCell {
-  type: GenshinView;
-  title?: string;
-  image?: string;
-  action?: string;
-  data?: Record<string, any>;
-}
-
-export type GenshinViewMatrix = Record<string, MatrixCell>;
-
-export enum GenshinView {
-  expedition,
-  ui,
+export interface Character {
+  avatar_level: number;
+  element_attr_id: number;
+  icon: string;
+  id: number;
+  max_level: number;
+  name: string;
+  weapon_cat_id: number;
 }

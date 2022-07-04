@@ -1,3 +1,4 @@
+/*
 import { Action, AppearDisappearEvent, BaseAction, KeyEvent } from '@stream-deck-for-node/sdk';
 import { sd } from '../index';
 import { GenshinView, GenshinViewMatrix, MatrixCell } from '../interfaces';
@@ -76,6 +77,10 @@ export class GenshinViewAction extends BaseAction {
         sd.setTitle(e.context, def.title ?? '');
         sd.setImage(e.context);
         break;
+      case GenshinView.progression:
+        sd.setTitle(e.context, '');
+        sd.setImage(e.context, def.image);
+        break;
       default:
         sd.setTitle(e.context, '');
         sd.setImage(e.context);
@@ -84,6 +89,10 @@ export class GenshinViewAction extends BaseAction {
 
   onSingleTap(e: KeyEvent) {
     const def = this.findCell(e);
+    if (def?.cb) {
+      def?.cb();
+      return;
+    }
     if (def?.action === 'back') {
       sd.switchToProfile(sd.uuid, e.device);
       resetMatrix();
@@ -91,3 +100,4 @@ export class GenshinViewAction extends BaseAction {
     }
   }
 }
+ */

@@ -1,5 +1,6 @@
 import axios from 'axios';
 import CryptoJS from 'crypto-js';
+import { sd } from '../index';
 
 const OS_DS_SALT = '6cqshh5dhw73bzxn20oexa9k516chk7s';
 
@@ -88,7 +89,6 @@ export const fetchAbyss = async ({ ltoken, ltuid, uid }: any) => {
       end: parseInt(data.end_time) * 1000,
     };
   } catch (e) {
-    console.log(e);
     return null;
   }
 };
@@ -106,18 +106,87 @@ const dailyRewardRequest = async ({ ltoken, ltuid, method, path }: any) => {
         },
       },
     );
-    return res.data;
+    return res.data?.data;
   } catch (e) {
     return null;
   }
 };
 
+export const getCharacterSkills = async (
+  avatar_id: number,
+  element_attr_id: number,
+  { ltoken, ltuid }: any,
+) => {
+  const res = await axios.get(
+    `https://sg-public-api.hoyolab.com/event/calculateos/avatar/skill_list?avatar_id=${avatar_id}&element_attr_id=${element_attr_id}&lang=en-us`,
+    {
+      headers: {
+        Cookie: `ltoken=${ltoken}; ltuid=${ltuid}`,
+        ...SHARED_HEADERS,
+      },
+    },
+  );
+  return res.data.data.list;
+};
+
+export const progressionCalculator = async ({ ltoken, ltuid, path = 'avatar/list', body }: any) => {
+  try {
+    const res = await axios.post(
+      'https://sg-public-api.hoyolab.com/event/calculateos/' + path,
+      body,
+      {
+        headers: {
+          Cookie: `ltoken=${ltoken}; ltuid=${ltuid}`,
+          ...SHARED_HEADERS,
+        },
+      },
+    );
+    const data = res.data?.data;
+    return data?.list ?? data;
+  } catch (e) {
+    console.log(e);
+    return null;
+  }
+};
+
+export const getCharacterDetails = async (
+  avatar_id: number,
+  element_attr_id: number,
+): Promise<any[]> => {
+  const { authentication } = sd.pluginSettings;
+  const skills = await getCharacterSkills(avatar_id, element_attr_id, authentication);
+  try {
+    const { avatar_consume, avatar_skill_consume } = await progressionCalculator({
+      ...authentication,
+      path: 'compute',
+      body: {
+        avatar_id,
+        avatar_level_current: 1,
+        avatar_level_target: 90,
+        element_attr_id,
+        skill_list: skills.map((it: any) => ({
+          id: it.group_id,
+          level_current: 1,
+          level_target: it.max_level,
+        })),
+        weapon: {},
+        reliquary_list: [],
+        lang: 'en-us',
+      },
+    });
+    return [...avatar_consume, ...avatar_skill_consume];
+  } catch (e) {
+    console.log(e);
+    return [];
+  }
+};
+
 export const getTodayReward = async ({ ltoken, ltuid }: any) => {
   const dailyInfo = await dailyRewardRequest({ ltoken, ltuid, path: 'info' });
-  const { total_sign_day, is_sign } = dailyInfo?.data || {};
+  const { total_sign_day, is_sign } = dailyInfo || {};
   const index = total_sign_day - 1 * (is_sign ? 1 : 0);
   const dailyHomeRewards = await dailyRewardRequest({ ltoken, ltuid, path: 'home' });
-  return [is_sign, dailyHomeRewards?.data?.awards[index]?.icon];
+  return [is_sign, dailyHomeRewards?.awards[index]?.icon];
 };
 
 export const claimReward = async ({ ltoken, ltuid }: any) => {

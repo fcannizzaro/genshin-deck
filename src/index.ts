@@ -8,10 +8,14 @@ import './actions/teapot';
 import './actions/transformer';
 import './actions/genshin-view';
 import './actions/daily-reward';
+import './actions/progression';
 import { PluginSettingsChanged, StreamDeck } from '@stream-deck-for-node/sdk';
-import { fetchAbyss, fetchDaily } from './api/hoyolab';
+import { fetchAbyss, fetchDaily, progressionCalculator } from './api/hoyolab';
+import { cache } from './util/cache';
 
 export const sd = new StreamDeck<PluginSettings>();
+
+export const GenshinView = sd.registerDynamicView('page', 'GenshinDeck');
 
 let loading = false;
 
@@ -28,6 +32,22 @@ export const refreshData = async () => {
     const { ltoken, ltuid, uid } = sd.pluginSettings?.authentication || {};
 
     if (ltoken && ltuid && uid) {
+      // if (!sd.pluginSettings.progression?.length) {
+      const progression = await progressionCalculator({
+        ltoken,
+        ltuid,
+        body: {
+          element_attr_ids: [],
+          is_all: true,
+          lang: 'en-us',
+          page: 1,
+          size: 100,
+          weapon_cat_ids: [],
+        },
+      });
+
+      sd.setPluginSettings({ progression });
+
       const [daily, abyss]: any = await Promise.all([
         fetchDaily({ ltoken, ltuid, uid }),
         fetchAbyss({ ltoken, ltuid, uid }),
@@ -58,6 +78,11 @@ process.on('uncaughtException', (e) => {
   sd.logMessage('ERROR: ' + e.message);
 });
 
-const init = () => refreshData().then(() => setInterval(refreshData, 1000 * 60));
+const init = async () => {
+  await sd.ready();
+  await cache.load();
+  await refreshData();
+  setInterval(refreshData, 1000 * 60);
+};
 
-setTimeout(init, 500);
+init().then();

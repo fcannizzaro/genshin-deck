@@ -1,12 +1,15 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@stream-deck-for-node/sdk': 1.0.12
+  '@stream-deck-for-node/sdk': 1.0.13
   '@types/crypto-js': ^4.1.0
+  '@types/lodash.uniqby': ^4.7.7
   '@types/node': ^16.11.12
   axios: ^0.25.0
   canvas: ^2.9.0
   crypto-js: ^4.1.1
+  file-system-cache: ^2.0.0
+  lodash.uniqby: ^4.7.0
   pkg: ^5.7.0
   prettier: ^2.7.1
   timediff: ^1.1.1
@@ -14,14 +17,17 @@ specifiers:
   typescript: ^4.5.3
 
 dependencies:
-  '@stream-deck-for-node/sdk': 1.0.12
+  '@stream-deck-for-node/sdk': 1.0.13
   axios: 0.25.0
   canvas: 2.9.1
   crypto-js: 4.1.1
+  file-system-cache: 2.0.0
+  lodash.uniqby: 4.7.0
   timediff: 1.1.1
 
 devDependencies:
   '@types/crypto-js': 4.1.1
+  '@types/lodash.uniqby': 4.7.7
   '@types/node': 16.11.41
   pkg: 5.7.0
   prettier: 2.7.1
@@ -113,8 +119,8 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@stream-deck-for-node/sdk/1.0.12:
-    resolution: {integrity: sha512-WZTZwZz4pPHtdtzDZjSn5fEaF5kKyIfHlpW2xuEgYq3dx8i94fN7qfc4Un6k2TIjd6Sh4pDy3ZyqwkFg1WrF2A==}
+  /@stream-deck-for-node/sdk/1.0.13:
+    resolution: {integrity: sha512-Egl3Rq5v6gK+1SwTjruKZIm0fBYEwFXpHIX1VJCobytfQy5s5s8cmmrVXyblxcTI4h+aVYoPFkt5suTliH1VSA==}
     dependencies:
       axios: 0.24.0
       command-line-args: 5.2.1
@@ -144,6 +150,16 @@ packages:
 
   /@types/crypto-js/4.1.1:
     resolution: {integrity: sha512-BG7fQKZ689HIoc5h+6D2Dgq1fABRa0RbBWKBd9SP/MVRVXROflpm5fhwyATX5duFmbStzyzyycPB8qUYKDH3NA==}
+    dev: true
+
+  /@types/lodash.uniqby/4.7.7:
+    resolution: {integrity: sha512-sv2g6vkCIvEUsK5/Vq17haoZaisfj2EWW8mP7QWlnKi6dByoNmeuHDDXHR7sabuDqwO4gvU7ModIL22MmnOocg==}
+    dependencies:
+      '@types/lodash': 4.14.182
+    dev: true
+
+  /@types/lodash/4.14.182:
+    resolution: {integrity: sha512-/THyiqyQAP9AfARo4pF+aCGcyiQ94tX/Is2I7HofNRqoYLgN1PBoOWu2/zTA5zMxzP5EFutMtWtGAFRKUe961Q==}
     dev: true
 
   /@types/node/16.11.41:
@@ -493,6 +509,13 @@ packages:
       reusify: 1.0.4
     dev: true
 
+  /file-system-cache/2.0.0:
+    resolution: {integrity: sha512-QlYut2ZtxRgdW/dboSmiKZWM8FsnpLaLI549hN/RWgwn3FawSil7Jc2n7nFHheclvYxa4LJqwEOvNUYv9VsCXg==}
+    dependencies:
+      fs-extra: 10.1.0
+      ramda: 0.28.0
+    dev: false
+
   /fill-range/7.0.1:
     resolution: {integrity: sha512-qOo9F+dMUmC2Lcb4BbVvnKJxTPjCm+RRpe4gDuGrzkL7mEVl/djYSu2OdQ2Pa302N4oqkSg9ir6jaLWJ2USVpQ==}
     engines: {node: '>=8'}
@@ -527,6 +550,15 @@ packages:
   /fs-constants/1.0.0:
     resolution: {integrity: sha512-y6OAwoSIf7FyjMIv94u+b5rdheZEjzR63GTyZJm5qh4Bi+2YgwLCcI/fPFZkL5PSixOt6ZNKm+w+Hfp/Bciwow==}
     dev: true
+
+  /fs-extra/10.1.0:
+    resolution: {integrity: sha512-oRXApq54ETRj4eMiFzGnHWGy+zo5raudjuxN0b8H7s/RU2oW0Wvsx9O0ACRN/kRq9E8Vu/ReskGB5o3ji+FzHQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      graceful-fs: 4.2.10
+      jsonfile: 6.1.0
+      universalify: 2.0.0
+    dev: false
 
   /fs-extra/9.1.0:
     resolution: {integrity: sha512-hcg3ZmepS30/7BSFqRvoo3DOMQu7IjqxO5nCDt+zM9XWjb33Wg7ziNT+Qvqbuc3+gWpzO02JubVyk2G4Zvo1OQ==}
@@ -622,7 +654,6 @@ packages:
 
   /graceful-fs/4.2.10:
     resolution: {integrity: sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==}
-    dev: true
 
   /has-flag/4.0.0:
     resolution: {integrity: sha512-EykJT/Q1KjTWctppgIAgfSO0tKVuZUjhgMr17kqTumMl6Afv3EISleU7qZUzoXDFTAHTDC4NOoG/ZxU3EvlMPQ==}
@@ -723,7 +754,6 @@ packages:
       universalify: 2.0.0
     optionalDependencies:
       graceful-fs: 4.2.10
-    dev: true
 
   /levn/0.3.0:
     resolution: {integrity: sha512-0OO4y2iOHix2W6ujICbKIaEQXvFQHue65vUG3pb5EUomzPI90z9hsA1VsO/dbIIpC53J8gxM9Q4Oho0jrCM/yA==}
@@ -735,6 +765,10 @@ packages:
 
   /lodash.camelcase/4.3.0:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
+    dev: false
+
+  /lodash.uniqby/4.7.0:
+    resolution: {integrity: sha512-e/zcLx6CSbmaEgFHCA7BnoQKyCtKMxnuWrJygbwPs/AIn+IMKl66L8/s+wBUn5LRw2pZx3bUHibiV1b6aTWIww==}
     dev: false
 
   /lru-cache/6.0.0:
@@ -1029,6 +1063,10 @@ packages:
     resolution: {integrity: sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==}
     dev: true
 
+  /ramda/0.28.0:
+    resolution: {integrity: sha512-9QnLuG/kPVgWvMQ4aODhsBUFKOUmnbUnsSXACv+NCQZcHbeb+v8Lodp8OVxtRULN1/xOyYLLaL6npE6dMq5QTA==}
+    dev: false
+
   /rc/1.2.8:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
     hasBin: true
@@ -1320,7 +1358,6 @@ packages:
   /universalify/2.0.0:
     resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
     engines: {node: '>= 10.0.0'}
-    dev: true
 
   /util-deprecate/1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}

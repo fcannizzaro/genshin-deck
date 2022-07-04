@@ -4,7 +4,7 @@
   "Author": "fcannizzaro",
   "Description": "Utilities Actions for Genshin Impact",
   "Icon": "./icons/pluginIcon",
-  "Version": "1.0.6",
+  "Version": "1.0.7",
   "CodePath": "com.genshin.deck.exe",
   "PropertyInspectorPath": "pi/index.html",
   "SDKVersion": 2,
@@ -152,12 +152,23 @@
       "UUID": "com.genshin.deck.daily-reward"
     },
     {
+      "Icon": "icons/characterIcon",
+      "Name": "Character Progression",
+      "States": [
+        {
+          "Image": "icons/characterState"
+        }
+      ],
+      "Tooltip": "Character Leveling resources",
+      "UUID": "com.genshin.deck.progression"
+    },
+    {
       "Name": "Tile",
       "States": [
         {
           "Image": "icons/pageState",
-          "TitleAlignment": "top",
-          "FontSize": "12"
+          "TitleAlignment": "middle",
+          "FontSize": "10"
         }
       ],
       "SupportedInMultiActions": false,

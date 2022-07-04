@@ -29,6 +29,9 @@ jobs:
       - name: Build plugin
         run: pnpm build
 
+      - name: Build Property Inspector
+        run: cd property-inspector && pnpm install && pnpm build
+
       - name: Rename plugin directory
         run: ren plugin com.genshin.deck.sdPlugin
 
