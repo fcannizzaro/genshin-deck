@@ -23,6 +23,9 @@ or from below:
 ### Expeditions View (tap on expeditions' action)
 ![actions](https://github.com/fcannizzaro/genshin-deck/blob/main/media/expeditions-view.png?raw=true)
 
+### Progression Action and View
+![actions](https://github.com/fcannizzaro/genshin-deck/blob/main/media/character-progression.gif?raw=true)
+
 ## Authentication
 
 This tool uses the HoYoLAB cookies to obtain the info about your game instance.
