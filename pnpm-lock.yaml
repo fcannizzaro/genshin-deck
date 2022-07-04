@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@stream-deck-for-node/sdk': ^1.0.13
+  '@stream-deck-for-node/sdk': 1.0.15
   '@types/crypto-js': ^4.1.0
   '@types/lodash.uniqby': ^4.7.7
   '@types/node': ^16.11.12
@@ -17,7 +17,7 @@ specifiers:
   typescript: ^4.5.3
 
 dependencies:
-  '@stream-deck-for-node/sdk': 1.0.13
+  '@stream-deck-for-node/sdk': 1.0.15
   axios: 0.25.0
   canvas: 2.9.1
   crypto-js: 4.1.1
@@ -119,12 +119,13 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@stream-deck-for-node/sdk/1.0.13:
-    resolution: {integrity: sha512-Egl3Rq5v6gK+1SwTjruKZIm0fBYEwFXpHIX1VJCobytfQy5s5s8cmmrVXyblxcTI4h+aVYoPFkt5suTliH1VSA==}
+  /@stream-deck-for-node/sdk/1.0.15:
+    resolution: {integrity: sha512-XHg5l4MNPqpLIc3UfZOffYxliNDvEqr2zdDgxZZB59d7JHbc6RV7lMBTieWEdolkL869iczmjCs6uzYBdOqnpQ==}
     dependencies:
       axios: 0.24.0
       command-line-args: 5.2.1
       mime-types: 2.1.35
+      rxjs: 7.5.5
       ws: 8.8.0
     transitivePeerDependencies:
       - bufferutil
@@ -1129,6 +1130,12 @@ packages:
       queue-microtask: 1.2.3
     dev: true
 
+  /rxjs/7.5.5:
+    resolution: {integrity: sha512-sy+H0pQofO95VDmFLzyaw9xNJU4KTRSwQIGM6+iG3SypAtCiLDzpeG8sJrNCWn2Up9km+KhkvTdbkrdy+yzZdw==}
+    dependencies:
+      tslib: 2.4.0
+    dev: false
+
   /safe-buffer/5.1.2:
     resolution: {integrity: sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==}
     dev: true
@@ -1330,6 +1337,10 @@ packages:
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
     dev: true
+
+  /tslib/2.4.0:
+    resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
+    dev: false
 
   /tunnel-agent/0.6.0:
     resolution: {integrity: sha512-McnNiV1l8RYeY8tBgEpuodCC1mLUdbSN+CYBL7kJsJNInOP8UjDDEwdk6Mw60vdLLrr5NHKZhMAOSrR2NZuQ+w==}
