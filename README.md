@@ -20,7 +20,8 @@ or from below:
 
 ## Expeditions View
 > tap on expeditions' action
-![actions](https://github.com/fcannizzaro/genshin-deck/blob/main/media/expeditions-view.png?raw=true)
+> 
+> ![actions](https://github.com/fcannizzaro/genshin-deck/blob/main/media/expeditions-view.png?raw=true)
 
 ## Progression Action and View
 > <kbd>single tap</kbd> show progression resources
