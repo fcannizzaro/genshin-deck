@@ -7,10 +7,10 @@ import {
 } from '@stream-deck-for-node/sdk';
 import { checkAuthenticationChange, GenshinView, sd } from '../index';
 import { PluginSettings } from '../interfaces';
-import { DeviceType } from '../../../../sdk/lib/types/interfaces';
 import { createCanvas, loadImage } from 'canvas';
 import { readFileSync } from 'fs';
 import { join } from 'path';
+import { DeviceType } from '@stream-deck-for-node/sdk/lib/types/interfaces';
 
 @Action('expedition')
 export class ExpeditionAction extends BaseAction {
