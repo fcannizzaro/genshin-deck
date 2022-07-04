@@ -15,16 +15,19 @@ or from below:
 
 [![download](https://github.com/fcannizzaro/genshin-deck/blob/main/media/download.png?raw=true)](https://github.com/fcannizzaro/genshin-deck/releases/latest)
 
-## Preview
-
-### All actions
+## All actions
 ![actions](https://github.com/fcannizzaro/genshin-deck/blob/main/media/actions.png?raw=true)
 
-### Expeditions View (tap on expeditions' action)
+## Expeditions View
+> tap on expeditions' action
 ![actions](https://github.com/fcannizzaro/genshin-deck/blob/main/media/expeditions-view.png?raw=true)
 
-### Progression Action and View
-![actions](https://github.com/fcannizzaro/genshin-deck/blob/main/media/character-progression.gif?raw=true)
+## Progression Action and View
+> <kbd>single tap</kbd> show progression resources
+> 
+> <kbd>long press</kbd> set character as selected
+> 
+> ![actions](https://github.com/fcannizzaro/genshin-deck/blob/main/media/character-progression.gif?raw=true)
 
 ## Authentication
 
@@ -36,7 +39,7 @@ This tool uses the HoYoLAB cookies to obtain the info about your game instance.
 
 - Configure the uid and tokens
 
-![auth](https://github.com/fcannizzaro/genshin-deck/blob/main/media/authentication.png?raw=true)
+See [wiki](https://github.com/fcannizzaro/genshin-deck/wiki)
 
 ## Author
 
