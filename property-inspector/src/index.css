@@ -9,6 +9,7 @@ body {
 
 .container {
     display: flex;
+    flex-direction: column;
 }
 
 .spaced {

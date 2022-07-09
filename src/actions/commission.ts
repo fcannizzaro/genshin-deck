@@ -5,7 +5,7 @@ import {
   KeyEvent,
   PluginSettingsChanged,
 } from '@stream-deck-for-node/sdk';
-import { checkAuthenticationChange, refreshData, sd } from '../index';
+import { refreshData, sd } from '../index';
 import { PluginSettings } from '../interfaces';
 
 @Action('commission')
@@ -28,7 +28,7 @@ export class CommissionAction extends BaseAction {
   }
 
   async onPluginSettingsChanged(e: PluginSettingsChanged<PluginSettings>) {
-    if (checkAuthenticationChange(e) || !e.changedKeys.includes('daily')) {
+    if (!e.changedKeys.includes('daily')) {
       return;
     }
     this.contexts.forEach(this.updateTile);

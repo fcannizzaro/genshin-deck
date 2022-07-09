@@ -5,7 +5,7 @@ import {
   KeyEvent,
   PluginSettingsChanged,
 } from '@stream-deck-for-node/sdk';
-import { checkAuthenticationChange, GenshinView, sd } from '../index';
+import { GenshinView, sd } from '../index';
 import { PluginSettings } from '../interfaces';
 import { createCanvas, loadImage } from 'canvas';
 import { readFileSync } from 'fs';
@@ -86,7 +86,7 @@ export class ExpeditionAction extends BaseAction {
   }
 
   async onPluginSettingsChanged(e: PluginSettingsChanged<PluginSettings>) {
-    if (checkAuthenticationChange(e) || !e.changedKeys.includes('daily')) {
+    if (!e.changedKeys.includes('daily')) {
       return;
     }
     this.contexts.forEach(this.updateTile);

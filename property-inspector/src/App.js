@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import HoYoLab from './images/hoyolab.png';
 import { darken } from 'polished';
+import { Gesture } from './components/Gesture';
 
 function SimpleBox({ message }) {
   return (
@@ -74,6 +75,10 @@ const BlockDisplay = styled.div`
   display: block;
 `;
 
+const Spaced = styled.div`
+  margin-top: 8px;
+`;
+
 const Collapsed = styled.div`
   height: ${(p) => (p.collapsed ? 0 : 'auto')};
   overflow: hidden;
@@ -114,9 +119,9 @@ function Authentication({ authentication = {}, setSettings }) {
         </button>
 
         <TextInput
-          placeholder='uuid'
-          value={authentication.uuid ?? ''}
-          onChange={(e) => setSettings({ uuid: e.target.value })}
+          placeholder='uid'
+          value={authentication.uid ?? ''}
+          onChange={(e) => setSettings({ uid: e.target.value })}
         />
         <TextInput
           placeholder='ltuid'
@@ -162,6 +167,9 @@ function App() {
           />
         )}
       </div>
+      <Spaced>
+        <Gesture action='Refresh actions' gesture={'Single Tap'} />
+      </Spaced>
     </div>
   );
 }

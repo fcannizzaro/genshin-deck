@@ -8,7 +8,7 @@ import './actions/teapot';
 import './actions/transformer';
 import './actions/daily-reward';
 import './actions/progression';
-import { PluginSettingsChanged, StreamDeck } from '@stream-deck-for-node/sdk';
+import { StreamDeck } from '@stream-deck-for-node/sdk';
 import { fetchAbyss, fetchDaily, progressionCalculator } from './api/hoyolab';
 import { cache } from './util/cache';
 
@@ -29,6 +29,8 @@ export const refreshData = async () => {
   // obtain data
   try {
     const { ltoken, ltuid, uid } = sd.pluginSettings?.authentication || {};
+
+    console.log(ltoken, ltuid, uid);
 
     if (ltoken && ltuid && uid) {
       // if (!sd.pluginSettings.progression?.length) {
@@ -61,15 +63,6 @@ export const refreshData = async () => {
   }
   // change loading status
   loading = false;
-};
-
-// useful for initial configuration / authentication data updated
-export const checkAuthenticationChange = (e: PluginSettingsChanged<PluginSettings>) => {
-  if (e.changedKeys.length === 1 && e.changedKeys.includes('authentication')) {
-    refreshData().then();
-    return true;
-  }
-  return false;
 };
 
 process.on('uncaughtException', (e) => {

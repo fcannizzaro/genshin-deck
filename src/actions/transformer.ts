@@ -5,7 +5,7 @@ import {
   PluginSettingsChanged,
   SettingsChanged,
 } from '@stream-deck-for-node/sdk';
-import { checkAuthenticationChange, sd } from '../index';
+import { sd } from '../index';
 import { PluginSettings, RecoveryTime } from '../interfaces';
 
 interface TransformerSettings {
@@ -53,7 +53,7 @@ export class TransformerAction extends BaseAction {
   }
 
   async onPluginSettingsChanged(e: PluginSettingsChanged<PluginSettings>) {
-    if (checkAuthenticationChange(e) || !e.changedKeys.includes('daily')) {
+    if (!e.changedKeys.includes('daily')) {
       return;
     }
     this.contexts.forEach(this.updateTile);

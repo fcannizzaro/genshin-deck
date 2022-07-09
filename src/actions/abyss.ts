@@ -5,7 +5,7 @@ import {
   KeyEvent,
   PluginSettingsChanged,
 } from '@stream-deck-for-node/sdk';
-import { checkAuthenticationChange, refreshData, sd } from '../index';
+import { refreshData, sd } from '../index';
 import { createCanvas, loadImage } from 'canvas';
 import { PluginSettings } from '../interfaces';
 import path from 'path';
@@ -53,7 +53,7 @@ export class AbyssAction extends BaseAction {
   }
 
   async onPluginSettingsChanged(e: PluginSettingsChanged<PluginSettings>) {
-    if (checkAuthenticationChange(e) || !e.changedKeys.includes('abyss')) {
+    if (!e.changedKeys.includes('abyss')) {
       return;
     }
     this.contexts.forEach(this.updateTile);
