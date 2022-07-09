@@ -53,6 +53,8 @@ export class ExpeditionAction extends BaseAction {
   async onSingleTap(e: KeyEvent) {
     const device = sd.info.devices.find((it) => it.id === e.device)!;
     const dv = GenshinView.show(device, [DeviceType.StreamDeckMini]);
+    dv?.clear();
+
     const { expeditions = [] } = sd.pluginSettings.daily || {};
 
     if (!dv) {
