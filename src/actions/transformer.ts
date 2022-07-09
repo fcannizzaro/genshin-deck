@@ -2,6 +2,7 @@ import {
   Action,
   AppearDisappearEvent,
   BaseAction,
+  KeyEvent,
   PluginSettingsChanged,
   SettingsChanged,
 } from '@stream-deck-for-node/sdk';
@@ -42,6 +43,10 @@ export class TransformerAction extends BaseAction {
 
   onPeriodicUpdate() {
     this.contexts.forEach(this.updateTile);
+  }
+
+  onSingleTap(e: KeyEvent) {
+    this.updateTile(e.context);
   }
 
   async onAppear(e: AppearDisappearEvent) {
