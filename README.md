@@ -8,6 +8,11 @@ Actions for Live Resin, Spiral Abyss, Daily Commissions, Expeditions, Wish Banne
 
 > At this moment this plugin works only with **GENSHIN IMPACT GLOBAL**
 
+## New repository
+
+The new plugin is now developed at [https://github.com/fcannizzaro/hoyodeck](https://github.com/fcannizzaro/hoyodeck)
+
+
 ## Installation
 
 Download the stream-deck plugin from the [releases](https://github.com/fcannizzaro/genshin-deck/releases)
